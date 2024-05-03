@@ -107,5 +107,22 @@ class LinkedList {
         }
         this.length--
     }
+
+    reverseLinkedList(head) {
+        if(head === null || head.next === null ) {
+            return head;
+        }
+        let p = this.reverseLinkedList(head.next)
+        head.next.next = head
+        head.next = null
+        return p
+    }
     
 }
+
+const linkedList = new LinkedList()
+linkedList.addNode(20)
+linkedList.addNode(50)
+linkedList.addNode(30)
+linkedList.addNode(15)
+console.log(linkedList.reverseLinkedList(linkedList.head))

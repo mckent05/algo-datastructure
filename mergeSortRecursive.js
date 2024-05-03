@@ -31,6 +31,6 @@ const sort = (leftArray, rightArray, array) => {
 }
 const array = [2,4,12,45,67,89,11,34,55,67,88,99]
 
-console.log(mergeSort(array))
+mergeSort(array)
 
 console.log(array)
