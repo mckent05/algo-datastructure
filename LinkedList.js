@@ -125,4 +125,7 @@ linkedList.addNode(20)
 linkedList.addNode(50)
 linkedList.addNode(30)
 linkedList.addNode(15)
-console.log(linkedList.reverseLinkedList(linkedList.head))
+// console.log(linkedList.reverseLinkedList(linkedList.head))
+let p = {}
+p.next = "smell"
+
