@@ -117,15 +117,108 @@ class LinkedList {
         head.next = null
         return p
     }
+
+    printListInReverse(head) {
+        if(head === null || head.next === null) {
+            console.log(head.data)
+            return head
+        }
+        let p = this.printListInReverse(head.next)
+        console.log(head.data)
+        return p
+    }
+
+    addNodeRecursive(head, data) {
+        if(head === null) {
+            head = new Node(data)
+            return;
+        }
+        if(head.next === null) {
+            head.next = new Node(data)
+            return;
+        }
+        this.addNodeRecursive(head.next, data)
+        return head
+    }
+
+    insertAtIndexRecurisve(head, index, count, data) {
+        if(index === 0) {
+            if(head === null) {
+                head = new Node(data)
+            } else {
+                const node = new Node(data)
+                let current = head
+                head = node
+                node.next = current
+            }
+            return head
+        }
+        
+        if(count === index - 1) {
+           let next = head.next
+           const node = new Node(data)
+           head.next = node
+           node.next = next
+           return head;
+        }
+        this.insertAtIndexRecurisve(head.next, index, count +1, data)
+        return head
+        
+    }
+
+    deleteAtIndexRecurisve(head, index, count) {
+        if(index === 0) {
+            if(head === null) {
+                return null
+            } else {
+                let next = head.next
+                head = next
+                return head
+            }
+        }
+        
+        if(count === index - 1) {
+           let next = head.next.next
+           head.next = next
+           return head;
+        }
+        this.insertAtIndexRecurisve(head.next, index, count +1)
+        return head
+        
+    }
+    replaceAtIndexRecurisve(head, index, count, data) {
+        if(index === 0) {
+            if(head === null) {
+                return null
+            } else {
+                head.data = data
+                return head
+            }
+        }
+        
+        if(count === index - 1) {
+           let next = head.next
+           next.data = data
+           return head;
+        }
+        this.insertAtIndexRecurisve(head.next, index, count +1, data)
+        return head
+        
+    }
+
+    
     
 }
 
 const linkedList = new LinkedList()
 linkedList.addNode(20)
 linkedList.addNode(50)
-linkedList.addNode(30)
-linkedList.addNode(15)
-// console.log(linkedList.reverseLinkedList(linkedList.head))
-let p = {}
-p.next = "smell"
 
+// linkedList.printListInReverse(linkedList.head)
+// console.log(linkedList.reverseLinkedList(linkedList.head))
+const linkedList2 = new LinkedList()
+console.log(linkedList2.addNodeRecursive(linkedList.head, 2))
+console.log(linkedList2.addNodeRecursive(linkedList.head, 29))
+console.log(linkedList2.insertAtIndexRecurisve(linkedList.head, 1, 0, 5))
+// console.log(linkedList2.deleteAtIndexRecurisve(linkedList.head, 0, 0, 5))
+console.log(linkedList2.replaceAtIndexRecurisve(linkedList.head, 2, 0, 5555))
