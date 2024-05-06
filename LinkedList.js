@@ -204,10 +204,7 @@ class LinkedList {
         this.insertAtIndexRecurisve(head.next, index, count +1, data)
         return head
         
-    }
-
-    
-    
+    }  
 }
 
 const linkedList = new LinkedList()
@@ -219,6 +216,6 @@ linkedList.addNode(50)
 const linkedList2 = new LinkedList()
 console.log(linkedList2.addNodeRecursive(linkedList.head, 2))
 console.log(linkedList2.addNodeRecursive(linkedList.head, 29))
-console.log(linkedList2.insertAtIndexRecurisve(linkedList.head, 1, 0, 5))
+console.log(linkedList2.insertAtIndexRecurisve(linkedList.head, 2, 0, 5))
 // console.log(linkedList2.deleteAtIndexRecurisve(linkedList.head, 0, 0, 5))
 console.log(linkedList2.replaceAtIndexRecurisve(linkedList.head, 2, 0, 5555))
