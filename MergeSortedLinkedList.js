@@ -18,18 +18,3 @@ const mergeSortedLinkedList = (listA, listB) => {
     
 }
 
-let node1 =  {
-    data: 1,
-    next:  { data: 3, next:  { data: 5, next: {
-        data: 7, next: null 
-    } } }
-  }
-
-  let node2 =  {
-    data: 2,
-    next:  { data: 4, next:  { data: 6, next: {
-        data: 8, next: null 
-    } } }
-  }
-
-  console.log(mergeSortedLinkedList(node1, node2))

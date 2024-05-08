@@ -24,18 +24,43 @@ class BST {
         return head
     }
 
-    printNode(head) {
+    printNodePreOrder(head) {
+        console.log(head.data)
         if(head === null) {
-            console.log(head.data)
             return
         }
         if(head.left !== null) {
-            this.printNode(head.left)
+            this.printNodePreOrder(head.left)
         }
         if(head.right !== null) {
-            this.printNode(head.right)
+            this.printNodePreOrder(head.right)
+        }
+    }
+
+    printNodeInOrder(head) {
+        if(head === null) {
+            return
+        }
+        if(head.left !== null) {
+            this.printNodeInOrder(head.left)
         }
         console.log(head.data)
+        if(head.right !== null) {
+            this.printNodeInOrder(head.right)
+        }
+    }
+
+    printNodePostOrder(node) {
+        if(node ===null) {
+            return
+        }
+        if(node.left !== null) {
+            this.printNodePostOrder(node.left)
+        }
+        if(node.right !== null) {
+            this.printNodePostOrder(node.right)
+        }
+        console.log(node.data)
     }
 }
 
@@ -46,4 +71,4 @@ bst.addNode(firstNode, 7)
 bst.addNode(firstNode, 1)
 console.log(bst.addNode(firstNode, 8))
 console.log(bst.addNode(firstNode, 6))
-bst.printNode(firstNode)
+bst.printNodePostOrder(firstNode)

@@ -1,3 +1,5 @@
+const { Position } = require("monaco-editor")
+
 class Node {
     constructor(data) {
         this.data = data
@@ -9,7 +11,20 @@ class LinkedList {
     constructor() {
         this.head = null
         this.length = 0
+        this.count = 0
     }
+
+    // printRecursiveReverse(head, pos) {
+    //     if(head === null || head.next === null) {
+    //         return head
+    //     }
+    //     let p = this.printRecursiveReverse(head.next, pos--)
+    //     this.count++
+    //     if(this.count === pos) {
+    //         console.log(head.data)
+    //     }
+    //     return p
+    // }
 
     addNode(data) {
         
@@ -204,18 +219,23 @@ class LinkedList {
         this.insertAtIndexRecurisve(head.next, index, count +1, data)
         return head
         
-    }  
+    } 
+
 }
 
 const linkedList = new LinkedList()
 linkedList.addNode(20)
 linkedList.addNode(50)
+linkedList.addNode(10)
+linkedList.addNode(60)
+linkedList.addNode(12)
+console.log(linkedList.head)
 
 // linkedList.printListInReverse(linkedList.head)
 // console.log(linkedList.reverseLinkedList(linkedList.head))
-const linkedList2 = new LinkedList()
-console.log(linkedList2.addNodeRecursive(linkedList.head, 2))
-console.log(linkedList2.addNodeRecursive(linkedList.head, 29))
-console.log(linkedList2.insertAtIndexRecurisve(linkedList.head, 2, 0, 5))
-// console.log(linkedList2.deleteAtIndexRecurisve(linkedList.head, 0, 0, 5))
-console.log(linkedList2.replaceAtIndexRecurisve(linkedList.head, 2, 0, 5555))
+// const linkedList2 = new LinkedList()
+// console.log(linkedList2.addNodeRecursive(linkedList.head, 2))
+// console.log(linkedList2.addNodeRecursive(linkedList.head, 29))
+// console.log(linkedList2.insertAtIndexRecurisve(linkedList.head, 2, 0, 5))
+// // console.log(linkedList2.deleteAtIndexRecurisve(linkedList.head, 0, 0, 5))
+// console.log(linkedList2.replaceAtIndexRecurisve(linkedList.head, 2, 0, 5555))
