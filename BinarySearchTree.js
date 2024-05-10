@@ -62,6 +62,32 @@ class BST {
         }
         console.log(node.data)
     }
+
+    bfsTraversal(node) {
+        let queue = [ node ]
+        while(queue.length > 0) {
+            let current = queue.shift()
+            console.log(current.data)
+            if(current.left !== null) queue.push(current.left)
+            if(current.right !== null) queue.push(current.right)
+        }
+    }
+
+    doesInclude(node, target) {
+            if(node ===null) {
+                return
+            }
+            if(node.data === target) {
+                return true
+            }
+            if(node.left !== null) {
+                this.printNodePostOrder(node.left)
+            }
+            if(node.right !== null) {
+                this.printNodePostOrder(node.right)
+            }
+            return false
+    }
 }
 
 const bst = new BST()
@@ -71,4 +97,4 @@ bst.addNode(firstNode, 7)
 bst.addNode(firstNode, 1)
 console.log(bst.addNode(firstNode, 8))
 console.log(bst.addNode(firstNode, 6))
-bst.printNodePostOrder(firstNode)
+console.log(bst.bfsTraversal(firstNode))
