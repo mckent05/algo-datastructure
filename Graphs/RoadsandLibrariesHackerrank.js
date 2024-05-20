@@ -47,3 +47,4 @@ const buildGraph = (cities) => {
 console.log(largestCities(7,[[1,7], [1,3], [1,2],[2,3],[5,6],[6,8]],2,3))
 console.log(largestCities(6,[[1,3], [3,4], [2,4],[1,2],[2,3],[5,6]],5,2))
 console.log(largestCities(5, [[1,2], [1,3], [1,4]],1,6))
+console.log(new Set([[1,2], [2,3]]))
