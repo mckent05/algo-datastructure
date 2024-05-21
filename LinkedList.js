@@ -1,5 +1,3 @@
-const { Position } = require("monaco-editor")
-
 class Node {
     constructor(data) {
         this.data = data
@@ -220,16 +218,48 @@ class LinkedList {
         return head
         
     } 
+    // deleteDuplicateNode(head) {
+    //     let current = head
+    //     let previous
+    //     if(current === null) {
+    //         return head
+    //     }
+    //     while(current.next !== null) {
+    //         previous = current
+    //         current = current.next
+    //           if(previous.data === current.data) {
+    //             previous.next = current.next
+    //         }
+           
+    //     }
+    //     return head
+    // }
+    deleteDuplicateNodeRecursive(head) {
+        if(head === null || head.next == null) {
+            return
+        }
+        this.deleteDuplicateNodeRecursive(head.next)
+        if(head.data === head.next.data) {
+            head.next = head.next.next
+        }
+        return head
+    }
 
 }
 
 const linkedList = new LinkedList()
 linkedList.addNode(20)
-linkedList.addNode(50)
-linkedList.addNode(10)
-linkedList.addNode(60)
-linkedList.addNode(12)
-console.log(linkedList.head)
+linkedList.addNode(20)
+linkedList.addNode(20)
+linkedList.addNode(20)
+linkedList.addNode(30)
+linkedList.addNode(30)
+linkedList.addNode(30)
+linkedList.addNode(30)
+linkedList.addNode(40)
+linkedList.addNode(40)
+linkedList.addNode(40)
+console.log(linkedList.deleteDuplicateNodeRecursive(linkedList.head))
 
 // linkedList.printListInReverse(linkedList.head)
 // console.log(linkedList.reverseLinkedList(linkedList.head))
