@@ -236,13 +236,23 @@ class LinkedList {
     // }
     deleteDuplicateNodeRecursive(head) {
         if(head === null || head.next == null) {
-            return
+            return head
         }
         this.deleteDuplicateNodeRecursive(head.next)
         if(head.data === head.next.data) {
             head.next = head.next.next
         }
         return head
+    }
+
+    cycleDetection (head, visited = new Set()) {
+        if(head === null) {
+            return head
+        }
+        if(visited.has(head)) return true
+        visited.add(head)
+        if(this.cycleDetection) return true
+        return false
     }
 
 }
