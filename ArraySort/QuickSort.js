@@ -9,9 +9,9 @@ const quickSort = (array, start, end) => {
 }
 
 const partitionArray = (array, start, end) => {
-    const i = start - 1
+    let i = start - 1
     const pivot = array[end]
-    for(j= start; j < end - 1; j++) {
+    for(j= start; j <= end - 1; j++) {
         if(array[j] < pivot) {
             i++
             const temp = array[i]
