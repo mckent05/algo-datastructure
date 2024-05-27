@@ -17,16 +17,24 @@ const sort = (leftArray, rightArray, array) => {
     
     while( l < leftArraySize && r < rightArraySize ) {
         if(leftArray[l] < rightArray[r]) {
-            array[i++] = leftArray[l++]
+            array[i] = leftArray[l]
+            i++
+            l++
         }  else {
-            array[i++] = rightArray[r++]
+            array[i] = rightArray[r]
+            i++
+            r++
         }
     }
     while( l < leftArraySize) {
-        array[i++] = leftArray[l++]
+        array[i] = leftArray[l]
+        i++
+        l++
     }
     while(r < rightArraySize) {
-        array[i++] = rightArray[r++]
+        array[i] = rightArray[r]
+        i++
+        r++
     }
 }
 const array = [2,4,12,45,67,89,11,34,55,67,88,99]

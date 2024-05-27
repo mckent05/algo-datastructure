@@ -27,7 +27,7 @@ const partitionArray = (array, start, end) => {
 
 }
 
-const array = [5,4,3,7,8,2,1,6,9,0]
+const array = [2,4,12,45,67,89,11,34,55,67,88,99]
 
-quickSort(array, 0, 9)
+quickSort(array, 0, 11)
 console.log(array)
