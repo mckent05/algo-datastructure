@@ -1,8 +1,9 @@
-const djisktraShortestReach = (n, array, start) => {
+const djisktraShortestReach = (n, array, s) => {
     const graph = buildGraph(array)
-    start = String(start)
-    const visited = { start: 0 }
-    const queue = [ [start, 0 ] ]
+    s = String(s)
+    const visited = { s: 0 }
+    const queue = [ [s, 0 ] ]
+    const array2 = []
 
     while(queue.length > 0 ) {
         const [startNode, distance] = queue.shift()
@@ -18,7 +19,12 @@ const djisktraShortestReach = (n, array, start) => {
             }
         }
     }
+    for(i = 1; i <= n; i++) {
+        if( i == s) continue
+        array2.push(( i in visited) ? visited[i] : -1)
+    }
     console.log(visited)
+    return array2
 
 }
 
@@ -32,8 +38,7 @@ const buildGraph = (array) => {
         graph[b].push([String(a),c])
 
     }
-    console.log(graph)
     return graph
 }
 
-console.log(djisktraShortestReach(5, [[1,2,24], [1,4,20], [3,1,3],[4,3,12]], 1))
+console.log(djisktraShortestReach(4, [[1,2,24], [1,4,20], [3,1,3],[4,3,12]], 1))
