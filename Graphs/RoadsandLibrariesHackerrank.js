@@ -22,7 +22,7 @@ const largestCities = (n, cities, c_road, c_library) => {
 }
 
 const migrateGraph = (graph, current, visited) => {
-    if(visited.has(current)) return 0
+    if(visited.has(current)) return
     visited.add(current)
     
     let size = 1
