@@ -1,10 +1,4 @@
 const compareList = (A, B) => {
-    // if(A === null && B !== null) {
-    //     return false
-    // }
-    // if(A !== null && B === null) {
-    //     return false
-    // }
     if(A === null || B === null) {
         return A===B
     }
