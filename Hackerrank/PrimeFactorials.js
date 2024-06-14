@@ -11,19 +11,19 @@ const isPrime = (number) => {
 const primeFactorials = (number) => {
     while(!isPrime(number)) {
         let primeSum = 0
+        let divisor = 2
         while(number > 1) {
-            let divisor = 2
             if(isPrime(divisor)) {
                 if(number % divisor === 0) {
                     number /= divisor
                     primeSum += divisor
                 }
                 else {
-                    divisor++
+                    divisor +=1
                 }
             }
             else {
-                divisor++
+                divisor += 1
             }
         }
         number = primeSum
@@ -31,4 +31,4 @@ const primeFactorials = (number) => {
     return number
 }
 
-console.log(primeFactorials(2))
+console.log(primeFactorials(256))
