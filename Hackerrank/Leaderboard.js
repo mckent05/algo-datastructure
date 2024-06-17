@@ -5,7 +5,7 @@ const leaderBoard = (rank, player) => {
 const findLeaderBoard = (rank, score, currentIndex, result) => {
     if(!(currentIndex >=0 && score >= rank[currentIndex])) {
         result.push(currentIndex + 2)
-        return
+        
     }
     return findLeaderBoard(rank, score, currentIndex-1, result)
 }
