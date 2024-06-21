@@ -1,21 +1,15 @@
 const getLongestSubString = (str) => {
-    let countMaxSubtr = 0
-    let maxSubStr = 0
-    for(let i = 0; i <= str.length - 1; i++) {
-        if(str[i] !== str[ i + 1]) {
-            countMaxSubtr++
+    let maxLength = 0
+    let charAtIndex = new Map()
+    let start = 0
+    for(let end = 0; end < str.length; end ++) {
+        if(charAtIndex.has(str[end])) {
+            start = Math.max(start, charAtIndex.get(str[end]) + 1)
         }
-        if(str[i] === str[i + 1]) {
-            if(countMaxSubtr) {
-                maxSubStr = countMaxSubtr > maxSubStr ? countMaxSubtr : maxSubStr
-            }
-            countMaxSubtr = 0
-        }
+        charAtIndex.set(start[end], end)
+        maxLength = Math.max(maxLength, end - start + 1)
     }
-    if(countMaxSubtr) {
-        maxSubStr = countMaxSubtr > maxSubStr ? countMaxSubtr : maxSubStr
-    }
-    return maxSubStr
+    return maxLength
 }
 
 console.log(getLongestSubString("abcabcbb"))
