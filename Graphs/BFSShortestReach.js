@@ -1,7 +1,7 @@
 const bfsShortestSearch = (n, array, m, s) => {
     const graph = buildGraph(array) //ToDo
-    s = String(s)
-    const visited = {s: 0}
+    const visited = Array(n + 1).fill(-1)
+    visited[s] = 0
 
     const queue = [[s, 0]]
 
@@ -11,7 +11,7 @@ const bfsShortestSearch = (n, array, m, s) => {
         const [current, distance] = queue.shift()
 
         for( let nodes of graph[current]) {
-            if(!(nodes in visited)) {
+            if(visited[nodes] === -1) {
                 visited[nodes] = distance + 6
                 queue.push([nodes, distance + 6])
                 
@@ -19,8 +19,10 @@ const bfsShortestSearch = (n, array, m, s) => {
         }
     }
   for(i=1; i <= n ; i++) {
-    if(i == s)continue
-    array2.push((i in visited) ? visited[i] : -1)
+    if(i !== s) {
+        array2.push(visited[i])
+    }
+    
   }
     return array2
 }
@@ -32,8 +34,8 @@ const buildGraph = (array) => {
         const [a, b] = items
         if(!(a in graph)) graph[a] = []
         if(!(b in graph)) graph[b] = []
-        graph[a].push(String(b))
-        graph[b].push(String(a))
+        graph[a].push(b)
+        graph[b].push(a)
     }
     return graph
 }
