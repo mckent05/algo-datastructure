@@ -14,16 +14,20 @@ class LinkedList
     end
 
     def add_node_r(head, data)
-        if head.nil?
-            head = Node.new(data)
+        @head = head
+        if @head.nil?
+            @head = Node.new(data)   
+            return
         else
-            if head.next.nil?
-                head.next = Node.new(data)
-            else
-                add_node_r(head.next, data)
+            if !@head.next.nil?
+              add_node_r(@head.next, data)
+           else
+               @head.next = Node.new(data)
             end
             
         end
+        return @head
+        
     end
 
 
@@ -53,8 +57,8 @@ end
 
 linked_list1 = LinkedList.new
 linked_list2 = LinkedList.new
- linked_list2.add_node(12)
- linked_list2.add_node(40)
- linked_list2.add_node(6)
- p linked_list2
- p linked_list2.reverse_list(linked_list2.head)
+
+p linked_list2.add_node_r(linked_list2.head, 30)
+p linked_list2.add_node_r(linked_list2.head, 50)
+p linked_list2.add_node_r(linked_list2.head, 60)
+p linked_list2
