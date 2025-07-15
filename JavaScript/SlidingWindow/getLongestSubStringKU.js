@@ -1,5 +1,32 @@
 const getLongestKUniqueSubString = (str, k) => {
-    // Initialize pointers for start, left, right pointers
+    let maxLength = 0
+    let start = 0, left = 0, right = 0
+
+    const charMap = new Map()
+
+    while(right < str.length) {
+        const rightChar = str[right]
+        charMap.set(rightChar, (charMap.get(rightChar)|| 0) + 1)
+        right++
+
+        while(charMap.size > k) {
+            const leftChar = str[left]
+            charMap.set(leftChar, charMap.get(leftChar) - 1)
+            if(charMap.get(leftChar) === 0) {
+                charMap.delete(leftChar)
+            }
+            left++
+        }
+    }
+    if(charMap.size === k  && right - left > maxLength) {
+        maxLength = right - length
+        start = left
+    }
+    return str.substring(start, start + maxLength)
+}
+
+console.log(getLongestKUniqueSubString("abcbdbdbbdcdabd", 3))
+// Initialize pointers for start, left, right pointers
     let start = 0, left = 0, right = 0
     let maxLength = 0 //initialize maxlength
     const charCountMap = new Map() //Initalize map for keep track of added characters
@@ -27,6 +54,3 @@ const getLongestKUniqueSubString = (str, k) => {
 
     }
     return str.substring(start, start + maxLength)
-}
-
-console.log(getLongestKUniqueSubString("abcbdbdbbdcdabd", 3))
