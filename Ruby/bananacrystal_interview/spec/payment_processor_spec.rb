@@ -66,6 +66,7 @@ describe PaymentProcessor do
   end
 end
 
+
 def csv_headers
   %w(
     Name
